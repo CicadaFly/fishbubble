@@ -2,13 +2,13 @@ const NavBar = ()=>{
   return(
     <>
     <nav className="navbar mt-3">
-      <div className="nav-brand">
+      <div className="nav-brand ml-4">
         <h2 className="title is-2">重要時間表</h2>
       </div>
       <div className="flex">
-        <div className="has-text-centered">
-          <span className="mx-3">Geerer</span>
-          <span className="mx-3">46468468</span>
+        <div className="has-text-centered has-text-vcentered mt-3">
+          <span className="mx-3">Timeline</span>
+          <span className="mx-3">Tutorial</span>
         </div>
       </div>
     </nav>

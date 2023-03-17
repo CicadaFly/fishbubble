@@ -3,8 +3,8 @@
 	width: 1vmin;
 	height: 25vmin;
 
-	position: relative;
-  top: 4vmin;
+	position: absolute;
+  top: 13vmin;
 
 	z-index: 0;
 
