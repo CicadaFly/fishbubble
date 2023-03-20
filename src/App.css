@@ -1,4 +1,6 @@
 body, main, html
 {
   overflow-x: hidden;
+  background-color: #F9F5EB;
+  font-family: 'Microsoft JhengHei', Georgia, Times, serif;
 }

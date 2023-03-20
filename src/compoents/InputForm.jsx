@@ -32,9 +32,9 @@ const InputForm = ({seta1,setOpen})=>{
   }
   let field;
   if (!officialInput) {
-    field = <><label>官方時程</label><input type='text' className="text input" name="official"/></>
+    field = <><label>官方行程</label><input type='text' className="text input" name="official"/></>
   } else {
-    field = <><label>個人時程</label><input type='text' className="input" name="personal"/></>
+    field = <><label>個人行程</label><input type='text' className="input" name="personal"/></>
   }
   return(
     <div className={risingForm}>
@@ -48,7 +48,7 @@ const InputForm = ({seta1,setOpen})=>{
       </div>
       <div className="field">
         <input id="switchExample" type="checkbox" name="switchExample" className="switch" checked={officialInput} onChange={officialSwitch}/>
-        <label htmlFor="switchExample">個人時程</label>
+        <label htmlFor="switchExample">個人行程</label>
       </div>
       <div className="field is-grouped">
       <button type="submit" className="button is-success">新增</button>

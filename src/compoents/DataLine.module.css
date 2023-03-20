@@ -4,11 +4,10 @@
 	height: 25vmin;
 
 	position: absolute;
-  top: 13vmin;
 
 	z-index: 0;
 
-	background: rgba(72, 180, 86, 0.626);
+	background: #EA5455;
 
 	animation: created 0.4s;
 }

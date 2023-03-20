@@ -1,6 +1,6 @@
-import { DataLineStyle, EvenLineStyle, OddLineStyle } from './DataLine.module.css'
+import classes from './DataLine.module.css'
 
-export default function DataLine(props)
+const DataLine = ({even})=>
 {
 	// return (
 	// 	<div className={DataLineStyle +" "+
@@ -9,6 +9,8 @@ export default function DataLine(props)
 	// )
 
   return (
-		<div className={DataLineStyle +" "+ EvenLineStyle }></div>
+		<div className={`${classes.DataLineStyle} ${even ? classes.EvenLineStyle : classes.OddLineStyle} `}></div>
 	)
 }
+
+export default DataLine

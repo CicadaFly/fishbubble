@@ -20,25 +20,25 @@ const Fishbubble = () =>{
   const b1 = a1.slice().sort((a, b) => new Date(a.date) - new Date(b.date));
 
   
-  const c1 = b1.map((event,index)=> {
-    const even = index % 2 === 0
-    return (
-        <div key={event.uniId} className="column is-2 mx-3">
-         <DataLine/>
-        <p className="has-text-weight-bold">{event.date}</p>
-        <p>{event.official}</p>
-        <p>{event.personal}</p>
-        </div>
-    )
-  })
+  // const c1 = b1.map((event,index)=> {
+  //   const even = index % 2 === 0
+  //   return (
+  //       <div key={event.uniId} className="column is-2 mx-3">
+  //        <DataLine/>
+  //       <p className="has-text-weight-bold">{event.date}</p>
+  //       <p>{event.official}</p>
+  //       <p>{event.personal}</p>
+  //       </div>
+  //   )
+  // })
 return(
   <>
   <main className={fullContainer}>
     <NavBar/>
-    <HorizontalLine/>
     {open && <InputForm seta1={seta1} setOpen={showFormHandler}/>}
     <div className={firstLayer}>
       <Bubble b1={b1}/>
+      <HorizontalLine/>
       {/* {c1} */}
 
       <div style={{position: 'absolute',
@@ -46,7 +46,7 @@ return(
                   left: '50%',
                   marginLeft: '-50px',
                   zIndex: '0'}}>
-      <AiFillPlusCircle size="5vh" onClick={showFormHandler}/>
+      <AiFillPlusCircle size="5vh" onClick={showFormHandler} style={{cursor:'pointer'}}/>
       </div>
     </div>                                  
   </main>
