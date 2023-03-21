@@ -1,8 +1,8 @@
-import { HorizontalLineStyle } from './HorizonLine.module.css'
+import classes from './HorizonLine.module.css'
 
 
 const HorizontalLine = () =>{
-	return <div className={HorizontalLineStyle}></div>
+	return <div className={classes.HorizontalLineStyle}></div>
 }
 
 export default HorizontalLine

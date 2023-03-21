@@ -1,4 +1,4 @@
-import {dateBubble} from './DateBubble.module.css'
+import classes from './DateBubble.module.css'
 
 const DateBubble = ({date})=>{
   const monthDate = new Date(date);
@@ -7,7 +7,7 @@ const DateBubble = ({date})=>{
   const bubbleDate = `${month}/${nDate}`
 
   return (
-  <div className={`${dateBubble} mx-5`}>
+  <div className={`${classes.dateBubble} mx-5`}>
     {bubbleDate}
   </div>
 

@@ -1,16 +1,13 @@
 import { useState } from 'react'
 import DUMMY_DATA from './DUMMY_DATA'
-import {risingForm} from './InputForm.module.css'
+import classes from './InputForm.module.css'
 
-// 引入官方考情
-// 簡單的表格
-// 先有個人事件跟官方事件的欄位，之後再想辦法整合
-// 存在官方考情快捷鈕
 const InputForm = ({seta1,setOpen})=>{
-  const [officialInput, setOfficialInput] = useState(false)
+  const [officialInput, setOfficialInput] = useState(true)
   const officialSwitch = () =>{
     setOfficialInput(!officialInput)
   }
+
   function nextId() { return new Date().getTime() }
 
   const submitHandler = (event) =>{
@@ -24,20 +21,30 @@ const InputForm = ({seta1,setOpen})=>{
       official: formValues.official,
       personal: formValues.personal
     };
+
+    if (formValues.official.length + formValues.personal.length !== 0){
     seta1(prevData => [...prevData, newFormData]);
-    event.target.reset()
+    event.target.reset()}
+    else{
+      alert('行程不可為空');
+      return;
+    }
   }
   const fastInput = ()=>{
     seta1(DUMMY_DATA)
+    setOpen()
   }
-  let field;
-  if (!officialInput) {
-    field = <><label>官方行程</label><input type='text' className="text input" name="official"/></>
-  } else {
-    field = <><label>個人行程</label><input type='text' className="input" name="personal"/></>
+  const cleanInput = ()=>{
+    seta1([])
   }
+  const field = 
+  <>
+  <label>{`${officialInput?'官方行程':'個人行程'}`}</label>
+  <input type={`${officialInput? 'text' : 'hidden'}`} className="text input" name="official" />
+  <input type={`${!officialInput? 'text' : 'hidden'}`} className="text input" name="personal"/>
+  </>
   return(
-    <div className={risingForm}>
+    <div className={classes.risingForm}>
     <form onSubmit={submitHandler} >
       <div className="field">
         <label>日期</label>
@@ -47,13 +54,14 @@ const InputForm = ({seta1,setOpen})=>{
         {field}
       </div>
       <div className="field">
-        <input id="switchExample" type="checkbox" name="switchExample" className="switch" checked={officialInput} onChange={officialSwitch}/>
+        <input id="switchExample" type="checkbox" name="switchExample" className="switch" checked={!officialInput} onChange={officialSwitch}/>
         <label htmlFor="switchExample">個人行程</label>
       </div>
       <div className="field is-grouped">
+      <button type='button' className='button is-danger is-small mt-2 mr-1' onClick={cleanInput}>清除全部</button>
+      <button type='button' className='button is-info is-outlined is-small mt-2 mr-4' onClick={fastInput}>一鍵高普</button>
       <button type="submit" className="button is-success">新增</button>
       <button type='button' className='button is-light mx-2' onClick={setOpen}>關閉</button>
-      <button type='button' className='button is-info is-outlined is-small mt-2 ml-4' onClick={fastInput}>一鍵高普</button>
       </div>
     </form>
     </div>
